@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453773583845067118}
   m_Layer: 0
-  m_Name: Raycast Spawn Point
+  m_Name: Bullet Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3926322420506565298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0714, z: 0.2055}
+  m_LocalPosition: {x: 0, y: 0.0714, z: 0.2199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 730901963809755177}
   - component: {fileID: 3061320668151719756}
   - component: {fileID: 3985391218971750314}
+  - component: {fileID: 4168910353430887839}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -539,13 +540,13 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9042982401011680197}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 4168910353430887839}
+        m_TargetAssemblyTypeName: FirePistol, Assembly-CSharp
+        m_MethodName: FireGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -630,3 +631,18 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &4168910353430887839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042982401011680197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a4c7424e55be04aad2b00d6a9e367a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 7846642780163488266, guid: eb16a7da69b2a014c889e84e6928cc97,
+    type: 3}
+  bulletSpawnPoint: {fileID: 4453773583845067118}
