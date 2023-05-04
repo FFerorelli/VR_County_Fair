@@ -7,12 +7,14 @@ public class MainMenuBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject SettingsScreen;
+    [SerializeField] private Slider turnSpeedSlider;
     [SerializeField] private Text SnapTurnButtonText;
 
     private PlayerBehaviour _playerBehaviour;
     private void Start()
     {
         _playerBehaviour = FindAnyObjectByType<PlayerBehaviour>();
+        //turnSpeedSlider.onValueChanged.AddListener(delegate { OnTurnSpeedSliderValueChange(); } );
     }
     public void OnStartClicked()
     {
@@ -46,4 +48,11 @@ public class MainMenuBehaviour : MonoBehaviour
         mainMenuScreen.SetActive(true);
         SettingsScreen.SetActive(false);
     }
+
+    public void OnTurnSpeedSliderValueChange(Slider slider)
+    {
+        Debug.Log("turnSpeedSlider.value " + slider.value);
+        _playerBehaviour.ChangeTurnSpeed(slider.value);
+    }
+
 }

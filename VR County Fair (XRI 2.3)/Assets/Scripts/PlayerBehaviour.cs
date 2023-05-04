@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private ActionBasedControllerManager[] _actionBasedControllerManagers;
     private DynamicMoveProvider _dynamicMoveProvider;
+    private ContinuousTurnProviderBase _continuousMoveProvider;
     private GrabMoveProvider[] _grabMoveProviders;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
         _actionBasedControllerManagers = GetComponentsInChildren<ActionBasedControllerManager>();
         _dynamicMoveProvider = GetComponentInChildren<DynamicMoveProvider>();
         _grabMoveProviders = GetComponentsInChildren<GrabMoveProvider>();
+        _continuousMoveProvider = GetComponentInChildren<ContinuousTurnProviderBase>();
     }
     private void Start()
     {
@@ -70,5 +72,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             teleportationInteractor.enabled = canMove;
         }
+    }
+
+    public void ChangeTurnSpeed(float sliderValue)
+    {
+        Debug.Log("TurnSpeed " + sliderValue);
+        _continuousMoveProvider.turnSpeed = sliderValue;
     }
 }
