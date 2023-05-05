@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class MainMenuBehaviour : MonoBehaviour
 {
@@ -9,12 +11,14 @@ public class MainMenuBehaviour : MonoBehaviour
     [SerializeField] private GameObject SettingsScreen;
     [SerializeField] private Slider turnSpeedSlider;
     [SerializeField] private Text SnapTurnButtonText;
+    [SerializeField] private TMP_Text turnSpeedValueText;
+
 
     private PlayerBehaviour _playerBehaviour;
     private void Start()
     {
         _playerBehaviour = FindAnyObjectByType<PlayerBehaviour>();
-        //turnSpeedSlider.onValueChanged.AddListener(delegate { OnTurnSpeedSliderValueChange(); } );
+
     }
     public void OnStartClicked()
     {
@@ -34,14 +38,14 @@ public class MainMenuBehaviour : MonoBehaviour
     public void OnToggleSnapTurnClicked()
     {
        bool isSnapTurnOn = _playerBehaviour.ToggleSnapTurn();
-        if (isSnapTurnOn)
-        {
-            SnapTurnButtonText.text = "Toggle Snap Turn: On";
-        }
-        else
-        {
-            SnapTurnButtonText.text = "Toggle Snap Turn: Off";
-        }
+        //if (isSnapTurnOn)
+        //{
+        //    SnapTurnButtonText.text = "Toggle Snap Turn: On";
+        //}
+        //else
+        //{
+        //    SnapTurnButtonText.text = "Toggle Snap Turn: Off";
+        //}
     }
     public void OnSettingsBackClicked()
     {
@@ -52,6 +56,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public void OnTurnSpeedSliderValueChange(Slider slider)
     {
         Debug.Log("turnSpeedSlider.value " + slider.value);
+        turnSpeedValueText.text = Math.Ceiling(slider.value).ToString(); ;
         _playerBehaviour.ChangeTurnSpeed(slider.value);
     }
 
