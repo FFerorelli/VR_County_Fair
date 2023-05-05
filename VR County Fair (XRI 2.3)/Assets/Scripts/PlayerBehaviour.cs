@@ -35,14 +35,27 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameManager.OnGameStateChanged -= HandleGameStateChanged;
     }
-    public bool ToggleSnapTurn()
+    public void ToggleLeftSnapTurn(bool snap)
     {
-        foreach (var controllerManager in _actionBasedControllerManagers)
+        if (snap == true)
         {
-            controllerManager.smoothTurnEnabled = !controllerManager.smoothTurnEnabled;
+            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Snap;
         }
-
-        return !_actionBasedControllerManagers[0].smoothTurnEnabled;
+        else
+        {
+            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+        }
+    }
+    public void ToggleRightSnapTurn(bool snap)
+    {
+        if (snap == true)
+        {
+            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Snap;
+        }
+        else
+        {
+            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+        }
     }
 
     private void HandleGameStateChanged(GameState state)
@@ -85,32 +98,24 @@ public class PlayerBehaviour : MonoBehaviour
         _continuousMoveProvider.turnSpeed = sliderValue;
     }
 
-    void EnableLeftHandMoveAndStrafe()
+    public void EnableLeftHandMoveAndStrafe()
     {
         _locomotionManager.leftHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
-        //m_LeftHandMovementDirectionSelection.SetActive(true);
-        //m_LeftHandTurnStyleSelection.SetActive(false);
     }
 
-    void EnableRightHandMoveAndStrafe()
+    public void EnableRightHandMoveAndStrafe()
     {
         _locomotionManager.rightHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
-        //m_RightHandMovementDirectionSelection.SetActive(true);
-        //m_RightHandTurnStyleSelection.SetActive(false);
     }
 
-    void EnableLeftHandTeleportAndTurn()
+    public void EnableLeftHandTeleportAndTurn()
     {
         _locomotionManager.leftHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
-        //m_LeftHandMovementDirectionSelection.SetActive(false);
-        //m_LeftHandTurnStyleSelection.SetActive(true);
     }
 
-    void EnableRightHandTeleportAndTurn()
+    public void EnableRightHandTeleportAndTurn()
     {
         _locomotionManager.rightHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
-        //m_RightHandMovementDirectionSelection.SetActive(false);
-        //m_RightHandTurnStyleSelection.SetActive(true);
     }
 
 }
