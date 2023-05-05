@@ -59,7 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void AllowPlayerMovement(bool canMove)
     {
-        _dynamicMoveProvider.moveSpeed = canMove ? 1 : 0;
+        _dynamicMoveProvider.moveSpeed = canMove ? 10 : 0;
 
         foreach (var grabMoveProvider in _grabMoveProviders)
         {
