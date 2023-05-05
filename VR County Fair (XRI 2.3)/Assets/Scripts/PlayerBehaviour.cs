@@ -35,28 +35,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameManager.OnGameStateChanged -= HandleGameStateChanged;
     }
-    public void ToggleLeftSnapTurn(bool snap)
-    {
-        if (snap == true)
-        {
-            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Snap;
-        }
-        else
-        {
-            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
-        }
-    }
-    public void ToggleRightSnapTurn(bool snap)
-    {
-        if (snap == true)
-        {
-            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Snap;
-        }
-        else
-        {
-            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
-        }
-    }
+
 
     private void HandleGameStateChanged(GameState state)
     {
@@ -117,5 +96,34 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _locomotionManager.rightHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
     }
+    public void ToggleLeftSnapTurn(bool snap)
+    {
+        if (snap == true)
+        {
+            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Snap;
+        }
+        else
+        {
+            _locomotionManager.leftHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+        }
+    }
+    public void ToggleRightSnapTurn(bool snap)
+    {
+        if (snap == true)
+        {
+            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Snap;
+        }
+        else
+        {
+            _locomotionManager.rightHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+        }
+    }
+    public void ToggleComfortMode(bool comfortMode)
+    {
 
+            _locomotionManager.enableComfortMode = comfortMode;
+            
+            if (_locomotionManager.tunnelingVignette != null)
+                _locomotionManager.tunnelingVignette.SetActive(comfortMode);
+    }
 }

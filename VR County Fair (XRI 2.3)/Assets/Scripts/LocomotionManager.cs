@@ -195,14 +195,14 @@ namespace UnityEngine.XR.Content.Interaction
             set
             {
                 m_EnableComfortMode = value;
-                if (m_ComfortMode != null)
-                    m_ComfortMode.SetActive(m_EnableComfortMode);
+                if (tunnelingVignette != null)
+                    tunnelingVignette.SetActive(m_EnableComfortMode);
             }
         }
 
         [SerializeField]
         [Tooltip("Stores the GameObject for the comfort mode.")]
-        GameObject m_ComfortMode;
+        public GameObject tunnelingVignette;
 
         [SerializeField]
         [Tooltip("Whether gravity affects continuous and grab movement when flying is disabled.")]
@@ -277,8 +277,8 @@ namespace UnityEngine.XR.Content.Interaction
             SetTurnStyle(m_LeftHandTurnStyle, true);
             SetTurnStyle(m_RightHandTurnStyle, false);
 
-            if (m_ComfortMode != null)
-                m_ComfortMode.SetActive(m_EnableComfortMode);
+            if (tunnelingVignette != null)
+                tunnelingVignette.SetActive(m_EnableComfortMode);
 
             m_DynamicMoveProvider.useGravity = m_UseGravity;
             m_TwoHandedGrabMoveProvider.useGravity = m_UseGravity;

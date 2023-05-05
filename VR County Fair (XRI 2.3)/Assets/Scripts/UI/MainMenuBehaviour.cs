@@ -110,5 +110,16 @@ public class MainMenuBehaviour : MonoBehaviour
             _playerBehaviour.ToggleRightSnapTurn(false);
         }
     }
+    public void OnToggleComfortMode(Toggle toggle)
+    {
+        if (toggle.isOn)
+        {
+            _playerBehaviour.ToggleComfortMode(true);
+        }
+        else
+        {
+            _playerBehaviour.ToggleComfortMode(false);
+        }
+    }
 
 }
