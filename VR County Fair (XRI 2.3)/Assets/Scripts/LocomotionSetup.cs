@@ -31,21 +31,21 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("Stores the behavior that will be used to configure locomotion control schemes and configuration preferences.")]
         LocomotionManager m_Manager;
 
-        [SerializeField]
-        [Tooltip("Stores the GameObject reference used to turn on and off the movement direction toggle in the 3D UI for the left hand.")]
-        GameObject m_LeftHandMovementDirectionSelection;
+        //[SerializeField]
+        //[Tooltip("Stores the GameObject reference used to turn on and off the movement direction toggle in the 3D UI for the left hand.")]
+        //GameObject m_LeftHandMovementDirectionSelection;
 
-        [SerializeField]
-        [Tooltip("Stores the GameObject reference used to turn on and off the movement direction toggle in the 3D UI for the right hand.")]
-        GameObject m_RightHandMovementDirectionSelection;
+        //[SerializeField]
+        //[Tooltip("Stores the GameObject reference used to turn on and off the movement direction toggle in the 3D UI for the right hand.")]
+        //GameObject m_RightHandMovementDirectionSelection;
 
-        [SerializeField]
-        [Tooltip("Stores the GameObject reference used to turn on and off the turn style toggle in the 3D UI for the left hand.")]
-        GameObject m_LeftHandTurnStyleSelection;
+        //[SerializeField]
+        //[Tooltip("Stores the GameObject reference used to turn on and off the turn style toggle in the 3D UI for the left hand.")]
+        //GameObject m_LeftHandTurnStyleSelection;
 
-        [SerializeField]
-        [Tooltip("Stores the GameObject reference used to turn on and off the turn style toggle in the 3D UI for the right hand.")]
-        GameObject m_RightHandTurnStyleSelection;
+        //[SerializeField]
+        //[Tooltip("Stores the GameObject reference used to turn on and off the turn style toggle in the 3D UI for the right hand.")]
+        //GameObject m_RightHandTurnStyleSelection;
 
         //[SerializeField]
         //[Tooltip("Stores the toggle lever used to choose the locomotion type between move/strafe and teleport/turn for the left hand.")]
@@ -115,45 +115,45 @@ namespace UnityEngine.XR.Content.Interaction
         //[Tooltip("Stores the button toggle used to enable grab scaling.")]
         //XRPushButton m_ScalingToggle;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current movement speed value.")]
-        TextMeshPro m_MoveSpeedLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current movement speed value.")]
+        //TextMeshPro m_MoveSpeedLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current turn speed value.")]
-        TextMeshPro m_TurnSpeedLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current turn speed value.")]
+        //TextMeshPro m_TurnSpeedLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current snap turn value.")]
-        TextMeshPro m_SnapTurnLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current snap turn value.")]
+        //TextMeshPro m_SnapTurnLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current grab move ratio value.")]
-        TextMeshPro m_MoveRatioLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current grab move ratio value.")]
+        //TextMeshPro m_MoveRatioLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current strafe toggle value.")]
-        TextMeshPro m_StrafeLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current strafe toggle value.")]
+        //TextMeshPro m_StrafeLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current gravity toggle value.")]
-        TextMeshPro m_GravityLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current gravity toggle value.")]
+        //TextMeshPro m_GravityLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current turn around toggle value.")]
-        TextMeshPro m_TurnAroundLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current turn around toggle value.")]
+        //TextMeshPro m_TurnAroundLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current fly toggle value.")]
-        TextMeshPro m_FlyLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current fly toggle value.")]
+        //TextMeshPro m_FlyLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current grab move toggle value.")]
-        TextMeshPro m_GrabMoveLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current grab move toggle value.")]
+        //TextMeshPro m_GrabMoveLabel;
 
-        [SerializeField]
-        [Tooltip("The label that shows the current scaling toggle value.")]
-        TextMeshPro m_ScalingLabel;
+        //[SerializeField]
+        //[Tooltip("The label that shows the current scaling toggle value.")]
+        //TextMeshPro m_ScalingLabel;
 
         //void ConnectControlEvents()
         //{
@@ -333,33 +333,33 @@ namespace UnityEngine.XR.Content.Interaction
             return true;
         }
 
-        void EnableLeftHandMoveAndStrafe()
-        {
-            m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
-            m_LeftHandMovementDirectionSelection.SetActive(true);
-            m_LeftHandTurnStyleSelection.SetActive(false);
-        }
+        //void EnableLeftHandMoveAndStrafe()
+        //{
+        //    m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
+        //    m_LeftHandMovementDirectionSelection.SetActive(true);
+        //    m_LeftHandTurnStyleSelection.SetActive(false);
+        //}
 
-        void EnableRightHandMoveAndStrafe()
-        {
-            m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
-            m_RightHandMovementDirectionSelection.SetActive(true);
-            m_RightHandTurnStyleSelection.SetActive(false);
-        }
+        //void EnableRightHandMoveAndStrafe()
+        //{
+        //    m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
+        //    m_RightHandMovementDirectionSelection.SetActive(true);
+        //    m_RightHandTurnStyleSelection.SetActive(false);
+        //}
 
-        void EnableLeftHandTeleportAndTurn()
-        {
-            m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
-            m_LeftHandMovementDirectionSelection.SetActive(false);
-            m_LeftHandTurnStyleSelection.SetActive(true);
-        }
+        //void EnableLeftHandTeleportAndTurn()
+        //{
+        //    m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
+        //    m_LeftHandMovementDirectionSelection.SetActive(false);
+        //    m_LeftHandTurnStyleSelection.SetActive(true);
+        //}
 
-        void EnableRightHandTeleportAndTurn()
-        {
-            m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
-            m_RightHandMovementDirectionSelection.SetActive(false);
-            m_RightHandTurnStyleSelection.SetActive(true);
-        }
+        //void EnableRightHandTeleportAndTurn()
+        //{
+        //    m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
+        //    m_RightHandMovementDirectionSelection.SetActive(false);
+        //    m_RightHandTurnStyleSelection.SetActive(true);
+        //}
 
         void EnableLeftHandContinuousTurn()
         {
@@ -401,23 +401,23 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.dynamicMoveProvider.rightHandMovementDirection = DynamicMoveProvider.MovementDirection.HandRelative;
         }
 
-        void SetMoveSpeed(float sliderValue)
-        {
-            m_Manager.dynamicMoveProvider.moveSpeed = Mathf.Lerp(k_MinMoveSpeed, k_MaxMoveSpeed, sliderValue);
-            m_MoveSpeedLabel.text = $"{m_Manager.dynamicMoveProvider.moveSpeed.ToString(k_SpeedFormat)}{k_MoveSpeedUnitLabel}";
-        }
+        //void SetMoveSpeed(float sliderValue)
+        //{
+        //    m_Manager.dynamicMoveProvider.moveSpeed = Mathf.Lerp(k_MinMoveSpeed, k_MaxMoveSpeed, sliderValue);
+        //    m_MoveSpeedLabel.text = $"{m_Manager.dynamicMoveProvider.moveSpeed.ToString(k_SpeedFormat)}{k_MoveSpeedUnitLabel}";
+        //}
 
-        void EnableStrafe()
-        {
-            m_Manager.dynamicMoveProvider.enableStrafe = true;
-            m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
-        }
+        //void EnableStrafe()
+        //{
+        //    m_Manager.dynamicMoveProvider.enableStrafe = true;
+        //    m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+        //}
 
-        void DisableStrafe()
-        {
-            m_Manager.dynamicMoveProvider.enableStrafe = false;
-            m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
-        }
+        //void DisableStrafe()
+        //{
+        //    m_Manager.dynamicMoveProvider.enableStrafe = false;
+        //    m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+        //}
 
         void EnableComfort()
         {
@@ -429,29 +429,29 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.enableComfortMode = false;
         }
 
-        void EnableGravity()
-        {
-            m_Manager.useGravity = true;
-            m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
-        }
+        //void EnableGravity()
+        //{
+        //    m_Manager.useGravity = true;
+        //    m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
+        //}
 
-        void DisableGravity()
-        {
-            m_Manager.useGravity = false;
-            m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
-        }
+        //void DisableGravity()
+        //{
+        //    m_Manager.useGravity = false;
+        //    m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
+        //}
 
-        void EnableFly()
-        {
-            m_Manager.enableFly = true;
-            m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
-        }
+        //void EnableFly()
+        //{
+        //    m_Manager.enableFly = true;
+        //    m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
+        //}
 
-        void DisableFly()
-        {
-            m_Manager.enableFly = false;
-            m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
-        }
+        //void DisableFly()
+        //{
+        //    m_Manager.enableFly = false;
+        //    m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
+        //}
 
         //void SetTurnSpeed(float knobValue)
         //{
@@ -459,17 +459,17 @@ namespace UnityEngine.XR.Content.Interaction
         //    m_TurnSpeedLabel.text = $"{m_Manager.smoothTurnProvider.turnSpeed.ToString(k_DegreeFormat)}{k_TurnSpeedUnitLabel}";
         //}
 
-        void EnableTurnAround()
-        {
-            m_Manager.snapTurnProvider.enableTurnAround = true;
-            m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
-        }
+        //void EnableTurnAround()
+        //{
+        //    m_Manager.snapTurnProvider.enableTurnAround = true;
+        //    m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+        //}
 
-        void DisableTurnAround()
-        {
-            m_Manager.snapTurnProvider.enableTurnAround = false;
-            m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
-        }
+        //void DisableTurnAround()
+        //{
+        //    m_Manager.snapTurnProvider.enableTurnAround = false;
+        //    m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+        //}
 
         //void SetSnapTurnAmount(float newAmount)
         //{
@@ -477,11 +477,11 @@ namespace UnityEngine.XR.Content.Interaction
         //    m_SnapTurnLabel.text = $"{m_Manager.snapTurnProvider.turnAmount.ToString(k_DegreeFormat)}{k_SnapTurnAmountLabel}";
         //}
 
-        void EnableGrabMove()
-        {
-            m_Manager.enableGrabMovement = true;
-            m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
-        }
+        //void EnableGrabMove()
+        //{
+        //    m_Manager.enableGrabMovement = true;
+        //    m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
+        //}
 
         //void DisableGrabMove()
         //{
@@ -491,15 +491,15 @@ namespace UnityEngine.XR.Content.Interaction
         //    m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
         //}
 
-        void SetGrabMoveRatio(float sliderValue)
-        {
-            var moveRatio = Mathf.Lerp(k_MinGrabMoveRatio, k_MaxGrabMoveRatio, sliderValue);
-            var twoHandedGrabMoveProvider = m_Manager.twoHandedGrabMoveProvider;
-            twoHandedGrabMoveProvider.moveFactor = moveRatio;
-            twoHandedGrabMoveProvider.leftGrabMoveProvider.moveFactor = moveRatio;
-            twoHandedGrabMoveProvider.rightGrabMoveProvider.moveFactor = moveRatio;
-            m_MoveRatioLabel.text = $"{twoHandedGrabMoveProvider.moveFactor.ToString(k_GrabMoveRatioFormat)}{k_GrabMoveRatioLabel}";
-        }
+        //void SetGrabMoveRatio(float sliderValue)
+        //{
+        //    var moveRatio = Mathf.Lerp(k_MinGrabMoveRatio, k_MaxGrabMoveRatio, sliderValue);
+        //    var twoHandedGrabMoveProvider = m_Manager.twoHandedGrabMoveProvider;
+        //    twoHandedGrabMoveProvider.moveFactor = moveRatio;
+        //    twoHandedGrabMoveProvider.leftGrabMoveProvider.moveFactor = moveRatio;
+        //    twoHandedGrabMoveProvider.rightGrabMoveProvider.moveFactor = moveRatio;
+        //    m_MoveRatioLabel.text = $"{twoHandedGrabMoveProvider.moveFactor.ToString(k_GrabMoveRatioFormat)}{k_GrabMoveRatioLabel}";
+        //}
 
         //void EnableScaling()
         //{
@@ -509,10 +509,10 @@ namespace UnityEngine.XR.Content.Interaction
         //    m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
         //}
 
-        void DisableScaling()
-        {
-            m_Manager.twoHandedGrabMoveProvider.enableScaling = false;
-            m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
-        }
+        //void DisableScaling()
+        //{
+        //    m_Manager.twoHandedGrabMoveProvider.enableScaling = false;
+        //    m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
+        //}
     }
 }
