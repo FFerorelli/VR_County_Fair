@@ -5,10 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class MainMenuBehaviour : MonoBehaviour
+public class InGameMenuBehaviour : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuScreen;
-    [SerializeField] private GameObject SettingsScreen;
+    [SerializeField] private GameObject inGameMenuScreen;
+    [SerializeField] private GameObject inGameSettingsScreen;
     [SerializeField] private Slider turnSpeedSlider;
    // [SerializeField] private Text SnapTurnButtonText;
     [SerializeField] private TMP_Text turnSpeedValueText;
@@ -17,23 +17,26 @@ public class MainMenuBehaviour : MonoBehaviour
     [SerializeField] private Toggle leftSnapTurnToggle;
     [SerializeField] private Toggle rightSnapTurnToggle;
 
-
     private PlayerBehaviour _playerBehaviour;
+    private bool _isMenuOpen;
+
+
     private void Start()
     {
         _playerBehaviour = FindAnyObjectByType<PlayerBehaviour>();
 
     }
-    public void OnStartClicked()
+
+    public void ToggleMenu()
     {
-        GameManager.Instance.UpdateGameState(GameState.Play);
-        mainMenuScreen.SetActive(false);
-        SettingsScreen.SetActive(false);
+        _isMenuOpen = !_isMenuOpen;
+        inGameMenuScreen.SetActive(_isMenuOpen);
+        inGameSettingsScreen.SetActive(false);
     }
     public void OnSettingsClicked()
     {
-        mainMenuScreen.SetActive(false);
-        SettingsScreen.SetActive(true);
+        inGameMenuScreen.SetActive(false);
+        inGameSettingsScreen.SetActive(true);
     }
     public void OnQuitClicked()
     {
@@ -42,8 +45,8 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void OnSettingsBackClicked()
     {
-        mainMenuScreen.SetActive(true);
-        SettingsScreen.SetActive(false);
+        inGameMenuScreen.SetActive(true);
+        inGameSettingsScreen.SetActive(false);
     }
 
     public void OnTurnSpeedSliderValueChange(Slider slider)

@@ -9,6 +9,8 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    //public static PlayerBehaviour Instance;
+
     [SerializeField] XRRayInteractor[] _teleportationInteractors;
 
     private ActionBasedControllerManager[] _actionBasedControllerManagers;
@@ -20,6 +22,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        //if (Instance == null)
+        //    Instance = this;
+        //else
+        //    Destroy(gameObject);
+
         _actionBasedControllerManagers = GetComponentsInChildren<ActionBasedControllerManager>();
         _dynamicMoveProvider = GetComponentInChildren<DynamicMoveProvider>();
         _grabMoveProviders = GetComponentsInChildren<GrabMoveProvider>();

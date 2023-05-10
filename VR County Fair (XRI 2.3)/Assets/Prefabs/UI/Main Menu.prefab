@@ -157,6 +157,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Home Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 9192133848732106005, guid: 4ae7cb5280d0cbc49862eeeac8b416cd,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9192133848732106027, guid: 4ae7cb5280d0cbc49862eeeac8b416cd,
         type: 3}
       propertyPath: m_Pivot.x
