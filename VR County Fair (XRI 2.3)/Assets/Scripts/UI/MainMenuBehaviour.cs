@@ -9,13 +9,13 @@ public class MainMenuBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject SettingsScreen;
-    [SerializeField] private Slider turnSpeedSlider;
-   // [SerializeField] private Text SnapTurnButtonText;
     [SerializeField] private TMP_Text turnSpeedValueText;
-    [SerializeField] private TMP_Dropdown rightHandLocomotion;
-    [SerializeField] private TMP_Dropdown leftHandLocomotion;
-    [SerializeField] private Toggle leftSnapTurnToggle;
-    [SerializeField] private Toggle rightSnapTurnToggle;
+    //[SerializeField] private Slider turnSpeedSlider;
+    //[SerializeField] private Text SnapTurnButtonText;
+    //[SerializeField] private TMP_Dropdown rightHandLocomotion;
+    //[SerializeField] private TMP_Dropdown leftHandLocomotion;
+    //[SerializeField] private Toggle leftSnapTurnToggle;
+    //[SerializeField] private Toggle rightSnapTurnToggle;
 
 
     private PlayerBehaviour _playerBehaviour;
