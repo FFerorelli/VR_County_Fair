@@ -29,7 +29,7 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     {
         _isMenuOpen = !_isMenuOpen;
         mainMenuScreen.SetActive(_isMenuOpen);
-        mainMenuScreen.SetActive(false);
+        SettingsScreen.SetActive(false);
     }
     //public void OnStartClicked()
     //{
