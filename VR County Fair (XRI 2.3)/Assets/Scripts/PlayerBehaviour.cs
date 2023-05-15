@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
     //public static PlayerBehaviour Instance;
 
+    public event Action<float> OnTurnSpeedChanged;
+
     [SerializeField] XRRayInteractor[] _teleportationInteractors;
 
     private ActionBasedControllerManager[] _actionBasedControllerManagers;
@@ -80,7 +82,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void ChangeTurnSpeed(float sliderValue)
     {
-        Debug.Log("TurnSpeed " + sliderValue);
+        OnTurnSpeedChanged?.Invoke(sliderValue);
         _continuousMoveProvider.turnSpeed = sliderValue;
     }
 

@@ -10,7 +10,7 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject SettingsScreen;
     [SerializeField] private TMP_Text turnSpeedValueText;
-    //[SerializeField] private Slider turnSpeedSlider;
+    [SerializeField] private Slider turnSpeedSlider;
     //[SerializeField] private Text SnapTurnButtonText;
     //[SerializeField] private TMP_Dropdown rightHandLocomotion;
     //[SerializeField] private TMP_Dropdown leftHandLocomotion;
@@ -23,7 +23,11 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     private void Start()
     {
         _playerBehaviour = FindAnyObjectByType<PlayerBehaviour>();
-
+        _playerBehaviour.OnTurnSpeedChanged += HandleTurnSpeedChanged;
+    }
+    private void OnDestroy()
+    {
+        _playerBehaviour.OnTurnSpeedChanged -= HandleTurnSpeedChanged;
     }
     public virtual void ToggleMenu()
     {
@@ -58,6 +62,11 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
         Debug.Log("turnSpeedSlider.value " + slider.value);
         turnSpeedValueText.text = Math.Ceiling(slider.value).ToString(); ;
         _playerBehaviour.ChangeTurnSpeed(slider.value);
+    }
+    public void HandleTurnSpeedChanged(float turnSpeed)
+    {
+        turnSpeedValueText.text = Math.Ceiling(turnSpeed).ToString();
+        turnSpeedSlider.value = turnSpeed;
     }
 
     public void OnRightHandLocomotionChange(TMP_Dropdown dropDown)
