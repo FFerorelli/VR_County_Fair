@@ -12,10 +12,11 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     [SerializeField] private TMP_Text turnSpeedValueText;
     [SerializeField] private Slider turnSpeedSlider;
     //[SerializeField] private Text SnapTurnButtonText;
-    //[SerializeField] private TMP_Dropdown rightHandLocomotion;
-    //[SerializeField] private TMP_Dropdown leftHandLocomotion;
-    //[SerializeField] private Toggle leftSnapTurnToggle;
-    //[SerializeField] private Toggle rightSnapTurnToggle;
+    [SerializeField] private TMP_Dropdown rightHandLocomotion;
+    [SerializeField] private TMP_Dropdown leftHandLocomotion;
+    [SerializeField] private Toggle leftSnapTurnToggle;
+    [SerializeField] private Toggle rightSnapTurnToggle;
+    [SerializeField] private Toggle comfortModeToggle;
 
     private PlayerBehaviour _playerBehaviour;
     private bool _isMenuOpen;
@@ -24,10 +25,24 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     {
         _playerBehaviour = FindAnyObjectByType<PlayerBehaviour>();
         _playerBehaviour.OnTurnSpeedChanged += HandleTurnSpeedChanged;
+        _playerBehaviour.OnChangeLeftMovementType += HandleLeftHandLocomotionChange;
+        _playerBehaviour.OnChangeRightMovementType += HandleRightHandLocomotionChange;
+        _playerBehaviour.OnToggleLeftSnapTurn += HandleToggleLeftSnapTurn;
+        _playerBehaviour.OnToggleRightSnapTurn += HandleToggleRightSnapTurn;
+        _playerBehaviour.OnToggleComfortMode += HandleComfortModeChange;
+
     }
+
+
+
     private void OnDestroy()
     {
         _playerBehaviour.OnTurnSpeedChanged -= HandleTurnSpeedChanged;
+        _playerBehaviour.OnChangeLeftMovementType -= HandleLeftHandLocomotionChange;
+        _playerBehaviour.OnChangeRightMovementType -= HandleRightHandLocomotionChange;
+        _playerBehaviour.OnToggleLeftSnapTurn -= HandleToggleLeftSnapTurn;
+        _playerBehaviour.OnToggleRightSnapTurn -= HandleToggleRightSnapTurn;
+        _playerBehaviour.OnToggleComfortMode -= HandleComfortModeChange;
     }
     public virtual void ToggleMenu()
     {
@@ -35,12 +50,7 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
         mainMenuScreen.SetActive(_isMenuOpen);
         SettingsScreen.SetActive(false);
     }
-    //public void OnStartClicked()
-    //{
-    //    GameManager.Instance.UpdateGameState(GameState.Play);
-    //    mainMenuScreen.SetActive(false);
-    //    SettingsScreen.SetActive(false);
-    //}
+
     public void OnSettingsClicked()
     {
         mainMenuScreen.SetActive(false);
@@ -59,8 +69,8 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
 
     public void OnTurnSpeedSliderValueChange(Slider slider)
     {
-        Debug.Log("turnSpeedSlider.value " + slider.value);
-        turnSpeedValueText.text = Math.Ceiling(slider.value).ToString(); ;
+        //Debug.Log("turnSpeedSlider.value " + slider.value);
+        turnSpeedValueText.text = Math.Ceiling(slider.value).ToString(); 
         _playerBehaviour.ChangeTurnSpeed(slider.value);
     }
     public void HandleTurnSpeedChanged(float turnSpeed)
@@ -73,24 +83,36 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
     {
         if (dropDown.value == 0)
         {
+            
             _playerBehaviour.EnableRightHandTeleportAndTurn();
         }
         else
         {
             _playerBehaviour.EnableRightHandMoveAndStrafe();
         }
+        Debug.Log(dropDown.value);
     }
     public void OnLeftHandLocomotionChange(TMP_Dropdown dropDown)
     {
         if (dropDown.value == 0)
         {
-            Debug.Log(dropDown.value);
+            
             _playerBehaviour.EnableLeftHandMoveAndStrafe();
         }
         else
         {
             _playerBehaviour.EnableLeftHandTeleportAndTurn();
         }
+        Debug.Log(dropDown.value);
+    }
+
+    public void HandleLeftHandLocomotionChange(int dropDownValue)
+    {
+        leftHandLocomotion.value = dropDownValue;
+    }
+    public void HandleRightHandLocomotionChange(int dropDownValue)
+    {
+        rightHandLocomotion.value = dropDownValue;
     }
 
     public void OnToggleLeftSnapTurn(Toggle toggle)
@@ -104,6 +126,10 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
             _playerBehaviour.ToggleLeftSnapTurn(false);
         }
     }
+    public void HandleToggleLeftSnapTurn(bool snap)
+    {
+        leftSnapTurnToggle.isOn = snap;
+    }
     public void OnToggleRightSnapTurn(Toggle toggle)
     {
         if (toggle.isOn)
@@ -115,6 +141,10 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
             _playerBehaviour.ToggleRightSnapTurn(false);
         }
     }
+    private void HandleToggleRightSnapTurn(bool snap)
+    {
+        rightSnapTurnToggle.isOn = snap;
+    }
     public void OnToggleComfortMode(Toggle toggle)
     {
         if (toggle.isOn)
@@ -125,5 +155,9 @@ public abstract class BaseMenuBehaviour : MonoBehaviour
         {
             _playerBehaviour.ToggleComfortMode(false);
         }
+    }
+    public void HandleComfortModeChange(bool comfortMode)
+    {
+        comfortModeToggle.isOn = comfortMode;
     }
 }
